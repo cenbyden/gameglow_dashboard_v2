@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .page-transition {
+    @apply transition-all duration-300 ease-in-out;
+  }
+  
+  .gallery-grid {
+    @apply grid grid-cols-3 gap-4 w-full max-w-[90vw] mx-auto;
+  }
+  
+  .gallery-item {
+    @apply relative overflow-hidden rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300;
+    max-width: 30vw;
+  }
+  
+  .gallery-overlay {
+    @apply absolute inset-0 bg-black/20 opacity-0 hover:opacity-100 transition-opacity duration-300;
+  }
+  
+  .search-container {
+    @apply bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 p-2 rounded-lg shadow-sm;
+  }
+  
+  @media (max-width: 640px) {
+    .gallery-grid {
+      @apply grid-cols-3;
+    }
+    
+    .gallery-item {
+      max-width: 30vw;
+    }
+  }
+
+  /* Modal styles */
+  .image-modal-backdrop {
+    @apply fixed inset-0 bg-black/80 backdrop-blur-sm z-50;
+  }
+  
+  .image-modal-content {
+    @apply fixed inset-0 z-50 flex items-center justify-center p-4;
+  }
+  
+  .image-modal-container {
+    @apply flex h-[85vh] w-[90vw] max-w-7xl rounded-lg overflow-hidden;
+  }
+  
+  .image-modal-image-container {
+    @apply flex-1 bg-black flex items-center justify-center relative;
+  }
+  
+  .image-modal-info-panel {
+    @apply w-80 bg-dark glass-dark p-6 flex flex-col;
+  }
+  
+  .image-modal-close-button {
+    @apply absolute top-4 left-4 rounded-full bg-black/50 hover:bg-black/70 text-white;
+  }
+  
+  .image-modal-tag {
+    @apply bg-dark-nav text-gray-300 rounded-full px-2 py-1 text-xs;
+  }
+}
